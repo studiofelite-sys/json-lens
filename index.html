@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>JSON Lens — format, validate and explore JSON</title>
+<meta name="description" content="A fast in-browser JSON formatter, validator and tree explorer. No upload, no tracking, works offline.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewport='0 0 16 16'><text y='14'>&#128269;</text></svg>">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="bar">
+  <h1>JSON&nbsp;Lens</h1>
+  <div class="actions">
+    <button id="btn-format" title="Pretty-print (Ctrl+Enter)">Format</button>
+    <button id="btn-minify">Minify</button>
+    <button id="btn-sample" class="ghost">Sample</button>
+    <button id="btn-copy" class="ghost">Copy</button>
+    <button id="btn-clear" class="ghost">Clear</button>
+  </div>
+</header>
+
+<main class="split">
+  <section class="pane">
+    <div class="pane-head">
+      <span>Input</span>
+      <label class="indent">Indent
+        <select id="indent">
+          <option value="2" selected>2</option>
+          <option value="4">4</option>
+          <option value="\t">tab</option>
+        </select>
+      </label>
+    </div>
+    <textarea id="input" spellcheck="false" placeholder="Paste JSON here…"></textarea>
+  </section>
+
+  <section class="pane">
+    <div class="pane-head">
+      <span>Tree</span>
+      <div class="tree-actions">
+        <input id="filter" type="search" placeholder="filter keys / values">
+        <button id="btn-expand" class="ghost sm">Expand all</button>
+        <button id="btn-collapse" class="ghost sm">Collapse</button>
+      </div>
+    </div>
+    <div id="tree" class="tree" tabindex="0"></div>
+  </section>
+</main>
+
+<footer id="status" class="status" role="status">Ready.</footer>
+
+<script src="js/parser.js"></script>
+<script src="js/tree.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
